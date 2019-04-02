@@ -1,5 +1,6 @@
 var saveButton = document.querySelector('.save-button');
 
+
 saveButton.addEventListener('click', saveIdea);
 
 function saveIdea(e) {
@@ -14,7 +15,11 @@ function saveIdea(e) {
 }
 
 function ideaReload() {
+  var titleText = document.querySelector('#title-thing');
+  var bodyText = document.querySelector('#body-thing');
   var parsedIdea = JSON.parse(localStorage.getItem('idea'));
+  titleText.innerText = parsedIdea.title;
+  bodyText.innerText = parsedIdea.body + parsedIdea.quality;
   console.log(parsedIdea);
 }
 
