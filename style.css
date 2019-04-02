@@ -89,9 +89,7 @@ main {
   background-color: #1F1F3D;
 }
 
-.search-input,
-.save-button,
-.title-input {
+.save-button {
   margin-top: 25px;
   color: white;
   font-family: inherit;
