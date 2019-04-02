@@ -58,6 +58,7 @@ h3 {
 
 .filter-btn:hover {
   background-color: #D14119;
+  border-left: 3px solid #F58E72;
 }
 
 button {
