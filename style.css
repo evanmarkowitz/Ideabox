@@ -18,9 +18,17 @@ header {
   color: white;
   display: flex;
   grid-area: header;
-  padding: 30px;
+  padding: 15px;
   align-content: space-around;
   height: 700px;
+}
+
+legend {
+  margin-top: 10px;
+}
+
+h3 {
+  margin: 10px 0px 10px 0px;
 }
 
 .light-btn {
@@ -43,10 +51,19 @@ header {
   display: block;
   text-align: left;
   font-size: 100%;
+  background-color: #1F1F3D;
+  border: 0px;
+  color: white;
 }
+
+.filter-btn:hover {
+  background-color: #D14119;
+}
+
 button {
   font-family: inherit;
 }
+
 button,
 input {
   width: 100%;
