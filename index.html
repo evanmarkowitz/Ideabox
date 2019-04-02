@@ -2,37 +2,39 @@
 <html>
 <head>
   <title>Ideabox</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
 </head>
 <body>
   <header>
     <nav>
-      <h3>
-      <form>
+      <h3>Ideabox Redux</h3>
+      <form class="starred-ideas">
         <legend> Filter Starred Ideas</legend>
-        <button>Show Starred Ideas</button>
+        <button class="light-btn">Show Starred Ideas</button>
       </form>
-      <form>
+      <form class="quality-form">
         <legend>Filter by Quality</legend>
-        <button>Swill</button>
-        <button>Plausible</button>
-        <button>Genius</button>
+        <button class="filter-btn">Swill</button>
+        <button class="filter-btn">Plausible</button>
+        <button class="filter-btn">Genius</button>
         <label for="new-quality-input">New Quality</label>
         <input id="new-quality-input">
-        <button>Add New Quality</button>
-      </form>
-      <form>
-        <button></button>
-        <input placeholder="Search ideas">
+        <button class="light-btn">Add New Quality</button>
       </form>
     </nav>
   </header>
   <main>
-    <form>
+    <form class="main-form">
       <label>Title</label>
-      <input>
+      <input class="title-input">
       <label>Body</label>
-      <input>
-      <button>Save</button>
+      <input class="body-input">
+      <button class="save-button">Save</button>
+    </form>
+    <form class="main-form" id="search-form">
+        <button class="search-button"></button>
+        <input placeholder="Search ideas" class="search-input">
     </form>
   </main>
   <section>
