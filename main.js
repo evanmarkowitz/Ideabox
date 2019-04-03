@@ -1,4 +1,5 @@
 var saveButton = document.querySelector('.save-button');
+var cardSection = document.querySelector(".card-section")
 var ideas = [];
 
 
@@ -61,7 +62,7 @@ window.addEventListener('load', pageLoad)
 
 function saveNewIdea(obj) {
   var ideaTable = document.querySelector('section');
-  ideaTable.innerHTML += `<article>
+  ideaTable.innerHTML += `<article class="card">
       <header class="idea-header">
         <img class="fave-img" src="images/star.svg">
         <img class="delete-img" src="images/delete.svg">
@@ -77,3 +78,11 @@ function saveNewIdea(obj) {
       </footer>
     </article>`
   }
+
+  function deleteCard(e) {
+    if(e.target.className === "delete-img") {
+      e.target.closest(".card").remove();
+    }
+  }
+
+  cardSection.addEventListener("click", deleteCard)
