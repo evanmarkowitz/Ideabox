@@ -61,7 +61,7 @@ window.addEventListener('load', pageLoad)
 
 function saveNewIdea(obj) {
   var ideaTable = document.querySelector('section');
-  ideaTable.innerHTML = `<article>
+  ideaTable.innerHTML += `<article>
       <header class="idea-header">
         <img class="fave-img" src="images/star.svg">
         <img class="delete-img" src="images/delete.svg">
