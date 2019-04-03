@@ -53,9 +53,9 @@ function pageLoad() {
   ideas.push(bestIdea)
   console.log(ideas);
 }
-}
 
 window.addEventListener('load', pageLoad)
+
 
 
 function saveNewIdea(obj) {
@@ -76,4 +76,28 @@ function saveNewIdea(obj) {
       </footer>
     </article>`
 }
+
+
+// Saves Ideas Array to Local Storage
+function saveLocalIdeas() {
+  var stringifiedIdeas = JSON.stringify(ideas);
+  localStorage.setItem('ideas', stringifiedIdeas)
+}
+
+// // On Page Load, Retrieves from Local Storage, Makes new Instances, and then Pushes into Idea Array
+function pageLoad() {
+  var retrievedIdeas = localStorage.getItem('ideas')
+  console.log(localStorage.getItem('ideas'));
+  var parsedIdeas = JSON.parse(retrievedIdeas);
+  console.log(parsedIdeas);
+  for (var i = 0; i < parsedIdeas.length; i++ ) {
+  var bestIdea = new Idea(parsedIdeas[i].id, parsedIdeas[i].title, parsedIdeas[i].body);
+  ideas.push(bestIdea)
+  console.log(ideas);
+}
+}
+
+window.addEventListener('load', pageLoad)
+
+
 
