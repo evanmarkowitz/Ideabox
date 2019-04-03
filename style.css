@@ -81,7 +81,7 @@ main {
 .body-input {
   height: 50px;
 }
-article {
+section {
   grid-area: article;
   background-color: #EAEAF4;
   grid-gap: 5%;

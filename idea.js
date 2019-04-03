@@ -10,6 +10,9 @@ class Idea {
     this.quality = quality[0];
     this.favorite = false;
   }
+  updateQuality() {
+    
+  }
   // saveToStorage() {
   //   does things
   // }
