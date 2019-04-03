@@ -51,6 +51,7 @@ function pageLoad() {
   console.log(parsedIdeas);
   for (var i = 0; i < parsedIdeas.length; i++ ) {
   var bestIdea = new Idea(parsedIdeas[i].id, parsedIdeas[i].title, parsedIdeas[i].body);
+  saveNewIdea(bestIdea)
   ideas.push(bestIdea)
   console.log(ideas);
   }
