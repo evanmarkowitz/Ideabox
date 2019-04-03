@@ -5,7 +5,7 @@
 }
 body {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 250px 1fr 1fr 1fr;
   grid-template-areas: 
   "header main main main"
   "header main main main"
@@ -18,26 +18,47 @@ header {
   color: white;
   display: flex;
   grid-area: header;
-  padding: 15px;
+  padding: 0px;
   align-content: space-around;
   height: 700px;
 }
 
 legend {
+  margin: 15px 10px;
+}
+
+label {
   margin-top: 10px;
 }
 
+nav {
+  max-width: 225px
+}
+
+.quality-search-form {
+  margin: 20px 0px;
+}
+
+.new-quality-label {
+  margin: 0px 10px;
+}
+
+.new-quality-input {
+  width: 200px;
+  margin: 0px 10px;
+}
+
 h3 {
-  margin: 10px 0px 10px 0px;
+  margin: 10px 15px;
 }
 
 .light-btn {
   background-color: #5356A4;
   border-color: #353567;
   color: #E9E9F3;
-  width: 100%;
+  width: 200px;
   height: 35px;
-  margin: 15px 0 15px 0;
+  margin: 15px 10px;
   font-size: 16px;
   font-weight: bold;
 }
@@ -54,11 +75,12 @@ h3 {
   background-color: #1F1F3D;
   border: 0px;
   color: white;
+  padding-left: 10px; 
 }
 
 .filter-btn:hover {
   background-color: #D14119;
-  border-left: 3px solid #F58E72;
+  border-left: 5px solid #F58E72;
 }
 
 button {
@@ -99,22 +121,70 @@ main {
 .body-input {
   height: 50px;
 }
-article {
+section {
   grid-area: article;
   background-color: #EAEAF4;
   grid-gap: 5%;
 }
 
-#search-from {
-  display: flex;
+#search-form {
+  display: inline;
 }
 
 .search-button{
-  flex: 1;
+  width: 10%;
+  height: 30px;
+  float: left;
 }
 .search-input{
-  flex: 9;
+  width: 90%;
+  height: 30px;
+}
+
+/* idea card <article> */ 
+
+article {
+  max-width: 250px;
+  min-width: 200px;
+  padding: 0;
+}
+
+img {
+  height: 25px;
+  width: 25px;
 }
 
 
+.idea-header {
+  background-color: #1F1F3D;
+  display: flex;
+  justify-content: space-between;
+  max-height: 25px;
+  padding:0;
+}
+
+.idea-card-title,
+.idea-card-body {
+  padding:15px 7px 0;
+}
+
+.idea-content {
+  background-color: #fff;
+  color: #1f1f3d;
+  height: 200px;
+  margin: 0;
+}
+
+.idea-card-quality {
+  margin:5px 0;
+}
+
+.idea-footer {
+  background-color: #5356a4;
+  display: flex;
+  justify-content: space-between;
+  min-height: 25px;
+}
+
+@media only screen and (max-width: 570px)
 
