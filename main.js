@@ -61,10 +61,12 @@ function saveNewIdea(obj) {
   }
 
 // The save button should be disabled unless there is text within the input
-  titleInput.addEventListener("input", function(e) {
+  saveButton.addEventListener("click", function(e) {
+    console.log(titleInput.value);
+    console.log(bodyInput.value);
     if (titleInput.value === "" || null && bodyInput.value === "" || null) {
-      document.getElementByClassName('.save-button').disabled = true;
-      document.getElementByClassName('.save-button').style.backgroundcolor = "#A9AAD2";
+      saveButton.disabled = true;
+      saveButton.style.backgroundcolor = "#A9AAD2";
       alert("Please enter an Idea");
     }
   });
@@ -87,7 +89,38 @@ function saveNewIdea(obj) {
 
   cardSection.addEventListener("click", deleteCard)
 
+
+
+/* Toggle Highlight Color */
+
+var qualityForm = document.querySelector('.quality-btn-form');
+qualityForm.addEventListener('click', toggleButtonColor);
+
+function toggleButtonColor(event) {
+  var qualityButtonClass = document.querySelector('.filter-btn');
+  var qTargetId = event.target.id;
+  var qTargetBtn = document.getElementById(qTargetId);
+  if (event.target.className == 'filter-btn') {
+   qTargetBtn.className = 'highlight-btn';
+  } else if (event.target.className == 'highlight-btn') {
+    console.log('it is orange');
+    qTargetBtn.className = 'filter-btn';
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
   // function ideaReload() {
+
 //   var titleText = document.querySelector('#title-thing');
 //   var bodyText = document.querySelector('#body-thing');
 //   var parsedIdea = JSON.parse(localStorage.getItem('idea'));
