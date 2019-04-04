@@ -3,9 +3,11 @@ var cardSection = document.querySelector('section');
 var ideas = [];
 
 
-window.addEventListener('load', pageLoad)
+window.addEventListener('load', pageLoad);
 saveButton.addEventListener('click', saveIdea);
-cardSection.addEventListener("click", deleteCard)
+cardSection.addEventListener("click", deleteCard);
+titleInput.addEventListener("input", disableSaveBtn);
+
 
 function saveIdea(e) {
   makeNewIdea();
@@ -60,15 +62,6 @@ function saveNewIdea(obj) {
     </article>`
   }
 
-// The save button should be disabled unless there is text within the input
-  titleInput.addEventListener("input", function(e) {
-    if (titleInput.value === "" || null && bodyInput.value === "" || null) {
-      document.getElementByClassName('.save-button').disabled = true;
-      document.getElementByClassName('.save-button').style.backgroundcolor = "#A9AAD2";
-      alert("Please enter an Idea");
-    }
-  });
-
   function deleteCard(e) {
     if(e.target.className === "delete-img") {
       e.target.closest(".card").remove();
@@ -106,3 +99,11 @@ function saveNewIdea(obj) {
   // localStorage.setItem('idea', stringifiedIdea);
   // console.log("after storing local");
   // ideaReload();
+
+  function disableSaveBtn() {
+    if (titleInput.value != "" || null && bodyInput.value != "" || null) {
+      saveButton.disabled = false;
+    } else if (titleInput.value === "" || null && bodyInput.value === "" || null) {
+      saveButton.disabled = true;
+    }
+  }
