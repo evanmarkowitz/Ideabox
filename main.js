@@ -59,25 +59,6 @@ window.addEventListener('load', pageLoad)
 
 function saveNewIdea(obj) {
   var ideaTable = document.querySelector('section');
-  ideaTable.innerHTML = `<article>
-      <header class="idea-header">
-        <img class="fave-img" src="images/star.svg">
-        <img class="delete-img" src="images/delete.svg">
-      </header>
-      <div class="idea-content">
-        <h5 class="idea-card-title">${obj.title}</h5>
-        <p class="idea-card-body">${obj.body}</p>
-      </div>
-      <footer class="idea-footer">
-        <img class="quality-up-img" src="images/upvote-active.svg">
-        <h5 class="idea-card-quality">Quality:${obj.quality}</h5>
-        <img class="quality-down-img" src="images/downvote.svg">
-      </footer>
-    </article>`
-}
-
-function saveNewIdea(obj) {
-  var ideaTable = document.querySelector('section');
   ideaTable.innerHTML += `<article class="card" data-id="${obj.id}">
       <header class="idea-header">
         <img class="fave-img" src="images/star.svg">
