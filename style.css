@@ -63,6 +63,17 @@ header {
   border: none;
 }
 
+.highlight-btn {
+  color: #bfbfdd;
+  font-size: 20px;
+  font-weight: lighter;
+  height: 35px;
+  width:100%;
+  text-align: left;
+  background-color: #d14119;
+  border-left: 4px solid #f58e72;
+}
+
 .filter-btn:hover {
   background-color: #d14119;
   border-left: 4px solid #f58e72;
