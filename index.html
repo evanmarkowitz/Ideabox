@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ideabox</title>
+  <title>IdeaBox | Welcome</title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 <body>
   <header>
     <nav>
       <h3>Ideabox Redux</h3>
       <form class="starred-ideas">
-        <legend> Filter Starred Ideas</legend>
+        <legend>Filter Starred Ideas</legend>
         <button class="light-btn">Show Starred Ideas</button>
       </form>
       <form class="quality-btn-form">
@@ -27,17 +28,19 @@
     </nav>
   </header>
   <main>
+    <div class="container">
     <form class="main-form">
-      <label>Title</label>
+      <label for="title-input">Title</label>
       <input class="title-input">
-      <label>Body</label>
+      <label for="body-input">Body</label>
       <input class="body-input">
       <button type="button" class="save-button">Save</button>
     </form>
     <form class="main-form" id="search-form">
-        <button class="search-button"></button>
-        <input placeholder="Search ideas" class="search-input">
+        <button type="button" class="search-button"><i class="fas fa-search"></i></button>
+        <input placeholder="  Search ideas" class="search-input">
     </form>
+  </div>
   </main>
   <section>
   </section>

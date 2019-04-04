@@ -1,5 +1,5 @@
 var saveButton = document.querySelector('.save-button');
-var cardSection = document.querySelector(".card-section")
+var cardSection = document.querySelector('section');
 var ideas = [];
 
 
@@ -36,6 +36,10 @@ function pageLoad() {
   ideas.push(bestIdea)
   }
 }
+
+
+window.addEventListener('load', pageLoad)
+
 
 function saveNewIdea(obj) {
   var ideaTable = document.querySelector('section');
