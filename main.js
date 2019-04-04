@@ -34,7 +34,6 @@ function makeNewIdea() {
   var bestIdea = new Idea(Date.now(), titleInput.value, bodyInput.value);
   saveNewIdea(bestIdea);
   ideas.push(bestIdea);
-  console.log(ideas)
 }
 
 // Saves Ideas Array to Local Storage
@@ -48,12 +47,10 @@ function pageLoad() {
   var retrievedIdeas = localStorage.getItem('ideas')
   console.log(localStorage.getItem('ideas'));
   var parsedIdeas = JSON.parse(retrievedIdeas);
-  console.log(parsedIdeas);
   for (var i = 0; i < parsedIdeas.length; i++ ) {
   var bestIdea = new Idea(parsedIdeas[i].id, parsedIdeas[i].title, parsedIdeas[i].body);
   saveNewIdea(bestIdea)
   ideas.push(bestIdea)
-  console.log(ideas);
   }
 }
 
@@ -63,7 +60,7 @@ window.addEventListener('load', pageLoad)
 
 function saveNewIdea(obj) {
   var ideaTable = document.querySelector('section');
-  ideaTable.innerHTML += `<article class="card">
+  ideaTable.innerHTML += `<article class="card" data-id="${obj.id}">
       <header class="idea-header">
         <img class="fave-img" src="images/star.svg">
         <img class="delete-img" src="images/delete.svg">
@@ -83,7 +80,10 @@ function saveNewIdea(obj) {
   function deleteCard(e) {
     if(e.target.className === "delete-img") {
       e.target.closest(".card").remove();
-    }
+    } 
+
   }
+
+ 
 
   cardSection.addEventListener("click", deleteCard)
