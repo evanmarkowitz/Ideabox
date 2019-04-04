@@ -170,16 +170,16 @@ section {
   overflow-y:auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
+  grid-gap: 3% 3%;
+  height: 55%;
+  margin: 0;
+  padding: 2% 3%;
 }
 
 /* idea card <article> */ 
 
 article {
-  max-width: 250px;
-  min-width: 200px;
   padding: 0;
-  margin:20px 15px;
 }
 
 img {
@@ -194,6 +194,7 @@ img {
   justify-content: space-between;
   max-height: 25px;
   padding:0;
+  width: 100%;
 }
 
 .idea-card-title,
@@ -216,5 +217,5 @@ img {
   background-color: #5356a4;
   display: flex;
   justify-content: space-between;
-  min-height: 25px;
+  min-height: 30px;
 }
