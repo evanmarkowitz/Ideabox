@@ -24,7 +24,7 @@ header {
 }
 
 legend {
-  margin: 15px 10px;
+  margin: 15px 22px;
 }
 
 label {
@@ -32,7 +32,7 @@ label {
 }
 
 nav {
-  max-width: 225px
+  max-width: 250px;
 }
 
 .quality-search-form {
@@ -40,16 +40,16 @@ nav {
 }
 
 .new-quality-label {
-  margin: 0px 10px;
+  margin: 0px 22px;
 }
 
 .new-quality-input {
   width: 200px;
-  margin: 0px 10px;
+  margin: 0px 22px;
 }
 
 h3 {
-  margin: 10px 15px;
+  margin: 10px 22px;
 }
 
 .light-btn {
@@ -58,7 +58,7 @@ h3 {
   color: #E9E9F3;
   width: 200px;
   height: 35px;
-  margin: 15px 10px;
+  margin: 15px 22px;
   font-size: 16px;
   font-weight: bold;
 }
