@@ -117,7 +117,7 @@ main label {
 
 main input {
   width: 99%;
-  height: 20px;
+  height: 25px;
   margin-top: 5px;
   border: 1px solid #5356a4;
 }
@@ -127,7 +127,7 @@ main input {
 }
 
 .title-input {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .save-button {
