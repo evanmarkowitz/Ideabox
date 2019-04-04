@@ -33,6 +33,10 @@ class Idea {
       this.favorite = false;
     }
   }
+  deleteFromStorage(suicide) {
+    console.log(ideas)
+    return ideas.splice(suicide, 1);
+  }
 
   // saveToStorage() {
   //   does things
