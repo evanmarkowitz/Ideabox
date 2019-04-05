@@ -141,8 +141,8 @@ var searchInput = document.querySelector('.search-input');
 var certainIdeas = [];
 
 function runFilter() {
+  certainIdeas = [];
   for (var i = 0; i < ideas.length; i++) {
-    // console.log(ideas[i].body);
     if (ideas[i].body.includes(searchInput.value)) certainIdeas.push(ideas[i]);
   }
 }
