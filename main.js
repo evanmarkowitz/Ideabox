@@ -1,27 +1,23 @@
 var saveButton = document.querySelector('.save-button');
 var cardSection = document.querySelector('section');
-var upVoteButton = document.querySelector('.quality-up-img')
+var upVoteButton = document.querySelector('.quality-up-img');
 var ideas = [];
 
 
 window.addEventListener('load', pageLoad)
 cardSection.addEventListener('click', findId);
-saveButton.addEventListener('click', saveIdea);
+saveButton.addEventListener('click', makeNewIdea);
 cardSection.addEventListener("click", deleteCard);
 cardSection.addEventListener("click", upVote);
 cardSection.addEventListener("click", downVote);
 cardSection.addEventListener("click", starred);
 
-function saveIdea(e) {
-  makeNewIdea();
-  saveLocalIdeas(); 
-}
-
 // Creates New Idea and Pushes it To Ideas Array
-function makeNewIdea() {
+function makeNewIdea(e) {
   var bestIdea = new Idea(Date.now(), titleInput.value, bodyInput.value, quality[0], false);
   saveNewIdea(bestIdea);
   ideas.push(bestIdea);
+  bestIdea.saveToLocalStorage()
 }
 
 // Saves Ideas Array to Local Storage
@@ -38,6 +34,7 @@ function pageLoad() {
   var bestIdea = new Idea(parsedIdeas[i].id, parsedIdeas[i].title, parsedIdeas[i].body, parsedIdeas[i].quality, false);
   saveNewIdea(bestIdea)
   ideas.push(bestIdea)
+  bestIdea.saveToLocalStorage()
   }
 }
 
@@ -85,40 +82,34 @@ function saveNewIdea(obj) {
     if (e.target.className === "delete-img") {
     var ideaLocation = findId(e)
     ideas[ideaLocation].deleteFromStorage(ideaLocation);
-    saveLocalIdeas()}
-  }
+    saveLocalIdeas()
+  }}
 
   function upVote(e) {
     if(e.target.className === "quality-up-img") {
       var ideaLocation = findId(e);
       ideas[ideaLocation].upVote();
-      saveLocalIdeas();
+      console.log(e.target.closest(".idea-card-quality"));
+      ideas[ideaLocation].saveToLocalStorage()
     }
+
   }
   function downVote(e) {
     if(e.target.className === "quality-down-img") {
       var ideaLocation = findId(e);
       ideas[ideaLocation].downVote();
-      saveLocalIdeas();
+      ideas[ideaLocation].saveToLocalStorage()
     }
   }
+
   function starred(e) {
     if(e.target.className === "fave-img") {
       var ideaLocation = findId(e);
       console.log(ideas[ideaLocation])
       ideas[ideaLocation].isStarred();
-      saveLocalIdeas();
+      ideas[ideaLocation].saveToLocalStorage()
     }
   }
-
-
-
- 
-
-
-
-  cardSection.addEventListener("click", deleteCard)
-
 
 var qualityForm = document.querySelector('.quality-btn-form');
 qualityForm.addEventListener('click', toggleButtonColor);
@@ -134,15 +125,4 @@ function toggleButtonColor(event) {
     qTargetBtn.className = 'filter-btn';
   }
 }
-
-
-
-
-
-
-
-
-
-
-
 
