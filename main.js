@@ -4,6 +4,11 @@ var upVoteButton = document.querySelector('.quality-up-img')
 var ideas = [];
 
 
+
+window.addEventListener('load', pageLoad);
+saveButton.addEventListener('click', saveIdea);
+cardSection.addEventListener("click", deleteCard);
+titleInput.addEventListener("input", disableSaveBtn);
 window.addEventListener('load', pageLoad)
 cardSection.addEventListener('click', findId);
 saveButton.addEventListener('click', saveIdea);
@@ -67,17 +72,6 @@ function saveNewIdea(obj) {
     return ideaLocation
   }
 
-// The save button should be disabled unless there is text within the input
-  saveButton.addEventListener("click", function(e) {
-    console.log(titleInput.value);
-    console.log(bodyInput.value);
-    if (titleInput.value === "" || null && bodyInput.value === "" || null) {
-      saveButton.disabled = true;
-      saveButton.style.backgroundcolor = "#A9AAD2";
-      alert("Please enter an Idea");
-    }
-  });
-
   function deleteCard(e) {
     if(e.target.className === "delete-img") {
       e.target.closest(".card").remove();
@@ -111,14 +105,35 @@ function saveNewIdea(obj) {
     }
   }
 
-
-
- 
-
-
-
   cardSection.addEventListener("click", deleteCard)
 
+  // function ideaReload() {
+//   var titleText = document.querySelector('#title-thing');
+//   var bodyText = document.querySelector('#body-thing');
+//   var parsedIdea = JSON.parse(localStorage.getItem('idea'));
+//   titleText.innerText = parsedIdea.title;
+//   bodyText.innerText = parsedIdea.body + parsedIdea.quality;
+//   console.log(parsedIdea);
+
+// }
+
+//Was on save idea
+  // e.preventDefault();
+  // console.log("first step");
+  // var idea = new Idea(titleInput.value, bodyInput.value);
+  // console.log(idea);
+  // var stringifiedIdea = JSON.stringify(idea);
+  // localStorage.setItem('idea', stringifiedIdea);
+  // console.log("after storing local");
+  // ideaReload();
+
+  function disableSaveBtn() {
+    if (titleInput.value != "" || null && bodyInput.value != "" || null) {
+      saveButton.disabled = false;
+    } else if (titleInput.value === "" || null && bodyInput.value === "" || null) {
+      saveButton.disabled = true;
+    }
+  }
 
 var qualityForm = document.querySelector('.quality-btn-form');
 qualityForm.addEventListener('click', toggleButtonColor);
@@ -134,15 +149,3 @@ function toggleButtonColor(event) {
     qTargetBtn.className = 'filter-btn';
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
