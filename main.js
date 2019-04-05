@@ -2,7 +2,8 @@ var saveButton = document.querySelector('.save-button');
 var cardSection = document.querySelector('section');
 var upVoteButton = document.querySelector('.quality-up-img');
 var ideas = [];
-
+var searchBar = document.querySelector('.search-input');
+var filterBtn = document.querySelector('.search-button');
 
 
 window.addEventListener('load', pageLoad);
@@ -16,6 +17,8 @@ cardSection.addEventListener("click", deleteCard);
 cardSection.addEventListener("click", upVote);
 cardSection.addEventListener("click", downVote);
 cardSection.addEventListener("click", starred);
+filterBtn.addEventListener("click", filterSearch);
+searchBar.addEventListener("keyup", searchCriteria);
 
 // Creates New Idea and Pushes it To Ideas Array
 function makeNewIdea(e) {
@@ -134,3 +137,12 @@ function toggleButtonColor(event) {
   }
 }
 
+function searchCriteria() {
+  return searchBar.value;
+}
+
+function filterSearch(ideas) {
+  var criteria = ideas.filter(function(idea) {
+    return idea =
+  }
+}
