@@ -206,5 +206,23 @@ function applySwillFilter() {
 }
 
 
+    var geniusButton = document.querySelector('#genius-btn');
+
+
+function applyPlausibleFilter() {
+  for (var i = 0; i < ideas.length; i++) {
+    var plausButton = document.querySelector('#plausible-btn');
+    var dataIdKey = `[data-id = "${ideas[i].id}"]`;
+    var targetCard = document.querySelector(dataIdKey);
+    if (ideas[i].quality === 'plausible' && targetCard.style.display !== 'block') {
+      console.log('running if');
+      targetCard.style.display = "block";
+    } else if (ideas[i].quality !== 'plausible' && targetCard.style.display !== 'none') {
+      console.log('running else');
+      targetCard.style.display = "none";
+    }
+  }
+}
+
 
 
