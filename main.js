@@ -7,7 +7,7 @@ var filterBtn = document.querySelector('.search-button');
 
 
 window.addEventListener('load', pageLoad);
-saveButton.addEventListener('click', saveIdea);
+// saveButton.addEventListener('click', saveIdea);
 cardSection.addEventListener("click", deleteCard);
 titleInput.addEventListener("input", disableSaveBtn);
 window.addEventListener('load', pageLoad)
@@ -60,7 +60,7 @@ function saveNewIdea(obj) {
       </div>
       <footer class="idea-footer">
         <img class="quality-up-img" src="images/upvote-active.svg">
-        <h5 class="idea-card-quality">Quality: ${obj.quality}</h5>
+        <h5 class="idea-card-quality">Quality:<span id="idea-card-quality"> ${obj.quality}</span></h5>
         <img class="quality-down-img" src="images/downvote.svg">
       </footer>
     </article>`
@@ -86,8 +86,9 @@ function saveNewIdea(obj) {
     if(e.target.className === "quality-up-img") {
       var ideaLocation = findId(e);
       ideas[ideaLocation].upVote();
-      console.log(e.target.closest(".idea-card-quality"));
       ideas[ideaLocation].saveToLocalStorage()
+      var quality = document.getElementById("idea-card-quality");
+      quality.innerText = " " + ideas[ideaLocation].quality;
     }
 
   }
@@ -96,6 +97,8 @@ function saveNewIdea(obj) {
       var ideaLocation = findId(e);
       ideas[ideaLocation].downVote();
       ideas[ideaLocation].saveToLocalStorage()
+      var quality = document.getElementById("idea-card-quality");
+      quality.innerText = " " + ideas[ideaLocation].quality;
     }
   }
 
