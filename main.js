@@ -190,6 +190,21 @@ function ideaFilter() {
 }
 
 
+function applySwillFilter() {
+  for (var i = 0; i < ideas.length; i++) {
+    var swillButton = document.querySelector('#swill-btn');
+    var dataIdKey = `[data-id = "${ideas[i].id}"]`;
+    var targetCard = document.querySelector(dataIdKey);
+    if (ideas[i].quality === 'swill' && targetCard.style.display !== 'block') {
+      console.log('running if');
+      targetCard.style.display = "block";
+    } else if (ideas[i].quality !== 'swill' && targetCard.style.display !== 'none') {
+      console.log('running else');
+      targetCard.style.display = "none";
+    }
+  }
+}
+
 
 
 
