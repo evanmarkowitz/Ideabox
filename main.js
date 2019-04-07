@@ -1,27 +1,28 @@
 var saveButton = document.querySelector('.save-button');
 var cardSection = document.querySelector('section');
-var upVoteButton = document.querySelector('.quality-up-img')
+var upVoteButton = document.querySelector('.quality-up-img');
 var ideas = [];
 
 
+
+window.addEventListener('load', pageLoad);
+// saveButton.addEventListener('click', saveIdea);
+cardSection.addEventListener("click", deleteCard);
+titleInput.addEventListener("input", disableSaveBtn);
 window.addEventListener('load', pageLoad)
 cardSection.addEventListener('click', findId);
-saveButton.addEventListener('click', saveIdea);
+saveButton.addEventListener('click', makeNewIdea);
 cardSection.addEventListener("click", deleteCard);
 cardSection.addEventListener("click", upVote);
 cardSection.addEventListener("click", downVote);
 cardSection.addEventListener("click", starred);
 
-function saveIdea(e) {
-  makeNewIdea();
-  saveLocalIdeas(); 
-}
-
 // Creates New Idea and Pushes it To Ideas Array
-function makeNewIdea() {
+function makeNewIdea(e) {
   var bestIdea = new Idea(Date.now(), titleInput.value, bodyInput.value, quality[0], false);
   saveNewIdea(bestIdea);
   ideas.push(bestIdea);
+  bestIdea.saveToLocalStorage()
 }
 
 // Saves Ideas Array to Local Storage
@@ -38,6 +39,7 @@ function pageLoad() {
   var bestIdea = new Idea(parsedIdeas[i].id, parsedIdeas[i].title, parsedIdeas[i].body, parsedIdeas[i].quality, false);
   saveNewIdea(bestIdea)
   ideas.push(bestIdea)
+  bestIdea.saveToLocalStorage()
   }
 }
 
@@ -55,7 +57,7 @@ function saveNewIdea(obj) {
       </div>
       <footer class="idea-footer">
         <img class="quality-up-img" src="images/upvote-active.svg">
-        <h5 class="idea-card-quality">Quality: ${obj.quality}</h5>
+        <h5 class="idea-card-quality">Quality:<span id="idea-card-quality"> ${obj.quality}</span></h5>
         <img class="quality-down-img" src="images/downvote.svg">
       </footer>
     </article>`
@@ -66,6 +68,7 @@ function saveNewIdea(obj) {
     var ideaLocation = ideas.findIndex(i => i.id === targetedId)
     return ideaLocation
   }
+
 
 // The save button should be disabled unless there is text within the input
   saveButton.addEventListener("click", function(e) {
@@ -87,7 +90,6 @@ function saveNewIdea(obj) {
   //   ideas[ideaLocation].deleteFromStorage(ideaLocation);
   //   saveLocalIdeas()}
   // }
-
   function deleteCard(e) {
     if(e.target.className === "delete-img") {
       e.target.closest(".card").remove();
@@ -105,32 +107,43 @@ function saveNewIdea(obj) {
     if(e.target.className === "quality-up-img") {
       var ideaLocation = findId(e);
       ideas[ideaLocation].upVote();
-      saveLocalIdeas();
+      ideas[ideaLocation].saveToLocalStorage()
+      var quality = document.getElementById("idea-card-quality");
+      quality.innerText = " " + ideas[ideaLocation].quality;
     }
+
   }
   function downVote(e) {
     if(e.target.className === "quality-down-img") {
       var ideaLocation = findId(e);
       ideas[ideaLocation].downVote();
-      saveLocalIdeas();
+      ideas[ideaLocation].saveToLocalStorage()
+      var quality = document.getElementById("idea-card-quality");
+      quality.innerText = " " + ideas[ideaLocation].quality;
     }
   }
+
   function starred(e) {
     if(e.target.className === "fave-img") {
       var ideaLocation = findId(e);
       console.log(ideas[ideaLocation])
       ideas[ideaLocation].isStarred();
-      saveLocalIdeas();
+      ideas[ideaLocation].saveToLocalStorage()
     }
   }
 
 
-
- 
-
-
-
   cardSection.addEventListener("click", deleteCard)
+
+
+
+  function disableSaveBtn() {
+    if (titleInput.value != "" || null && bodyInput.value != "" || null) {
+      saveButton.disabled = false;
+    } else if (titleInput.value === "" || null && bodyInput.value === "" || null) {
+      saveButton.disabled = true;
+    }
+  }
 
 
 var qualityForm = document.querySelector('.quality-btn-form');
@@ -169,7 +182,6 @@ function ideaFilter() {
     }
   }
 }
-
 
 
 

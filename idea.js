@@ -33,14 +33,11 @@ class Idea {
     }
   }
   deleteFromStorage(suicide) {
-    console.log(ideas)
     return ideas.splice(suicide, 1);
   }
 
-  // saveToStorage() {
-  //   does things
-  // }
-  // deleteFromStorage() {
-  //   deletes things
-  // }
-}
+  saveToLocalStorage() {
+  var stringifiedIdeas = JSON.stringify(ideas);
+  localStorage.setItem('ideas', stringifiedIdeas)
+  }
+ }
