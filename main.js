@@ -168,11 +168,19 @@ function toggleButtonColor(event) {
 }
 
 
+var swillButton = document.querySelector('#swill-btn');
+var plausButton = document.querySelector('#plausible-btn');
+var geniusButton = document.querySelector('#genius-btn');
 
+function filterSelector() {
+  if (e.target.id === 'swill-btn') {
+    ideaFilter();
+  }
+}
 
+//SEARCH BOX FILTER
 
 var searchBoxInput = document.querySelector('.search-input');
-
 searchBoxInput.addEventListener('keyup', ideaFilter);
 
 function ideaFilter() {
@@ -206,7 +214,6 @@ function applySwillFilter() {
 }
 
 
-    var geniusButton = document.querySelector('#genius-btn');
 
 
 function applyPlausibleFilter() {
