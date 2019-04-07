@@ -216,6 +216,7 @@ function ideaFilter() {
 
 
 function toggleQualityFilter(target) {
+  displayAllCards();
   for (var i = 0; i < ideas.length; i++) {
     var swillButton = document.querySelector('#swill-btn');
     var plausButton = document.querySelector('#plausible-btn');
