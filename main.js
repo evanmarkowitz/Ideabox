@@ -150,11 +150,17 @@ var qualityForm = document.querySelector('.quality-btn-form');
 qualityForm.addEventListener('click', toggleButtonColor);
 
 function toggleButtonColor(event) {
+  var swillButton = document.querySelector('#swill-btn');
+  var plausButton = document.querySelector('#plausible-btn');
+  var geniusButton = document.querySelector('#genius-btn');
   var qualityButtonClass = document.querySelector('.filter-btn');
   var qTargetId = event.target.id;
   var qTargetBtn = document.getElementById(qTargetId);
   if (event.target.className == 'filter-btn') {
-   qTargetBtn.className = 'highlight-btn';
+    swillButton.className = 'filter-btn';
+    plausButton.className = 'filter-btn';
+    geniusButton.className = 'filter-btn';
+    qTargetBtn.className = 'highlight-btn';
   } else if (event.target.className == 'highlight-btn') {
     console.log('it is orange');
     qTargetBtn.className = 'filter-btn';
