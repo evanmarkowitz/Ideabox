@@ -25,7 +25,7 @@ On reload, their edits should persist.
 
 PHASE II: 
 
-Ideas should start as 'swill'. 
+// Ideas should start as 'swill'. 
 //- each idea should have an upvote/downvote button. 
 - clicking upvote should increase quality one notch.
 - clicking downvote should do the opposite.
@@ -33,6 +33,6 @@ Ideas should start as 'swill'.
 
 //Have a search bar. 
 
-As users type in the search box, the list of ideas should filter in real time to only display ideas whose title/body include the user text. 
+// As users type in the search box, the list of ideas should filter in real time to only display ideas whose title/body include the user text. 
 
-Clearing the search box should restore all ideas to the list. 
+// Clearing the search box should restore all ideas to the list. 
