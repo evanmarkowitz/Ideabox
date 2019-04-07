@@ -41,6 +41,7 @@ function pageLoad() {
   ideas.push(bestIdea)
   bestIdea.saveToLocalStorage()
   }
+  displayAllCards();
 }
 
 
@@ -162,19 +163,35 @@ function toggleButtonColor(event) {
     geniusButton.className = 'filter-btn';
     qTargetBtn.className = 'highlight-btn';
   } else if (event.target.className == 'highlight-btn') {
-    console.log('it is orange');
     qTargetBtn.className = 'filter-btn';
   }
 }
 
 
-var swillButton = document.querySelector('#swill-btn');
-var plausButton = document.querySelector('#plausible-btn');
-var geniusButton = document.querySelector('#genius-btn');
 
-function filterSelector() {
-  if (e.target.id === 'swill-btn') {
-    ideaFilter();
+qualityForm.addEventListener('click', filterSelector);
+
+function filterSelector(e) {
+  if (e.target.className === 'filter-btn') {
+    displayAllCards();
+  } else if (e.target.className === 'highlight-btn') {
+      if (e.target.id === 'swill-btn') {
+      toggleQualityFilter(0);
+      } else if (e.target.id === 'plausible-btn') {
+          console.log('plaus');
+          toggleQualityFilter(1);
+        } else if (e.target.id === 'genius-btn') {
+            console.log('genius');
+            toggleQualityFilter(2);
+          }
+    }
+}
+
+function displayAllCards() {
+  for (var i = 0; i < ideas.length; i++) {
+    var dataIdKey = `[data-id = "${ideas[i].id}"]`;
+    var targetCard = document.querySelector(dataIdKey);
+    targetCard.style.display = "block";
   }
 }
 
@@ -198,38 +215,59 @@ function ideaFilter() {
 }
 
 
-function applySwillFilter() {
+function toggleQualityFilter(target) {
   for (var i = 0; i < ideas.length; i++) {
     var swillButton = document.querySelector('#swill-btn');
-    var dataIdKey = `[data-id = "${ideas[i].id}"]`;
-    var targetCard = document.querySelector(dataIdKey);
-    if (ideas[i].quality === 'swill' && targetCard.style.display !== 'block') {
-      console.log('running if');
-      targetCard.style.display = "block";
-    } else if (ideas[i].quality !== 'swill' && targetCard.style.display !== 'none') {
-      console.log('running else');
-      targetCard.style.display = "none";
-    }
-  }
-}
-
-
-
-
-function applyPlausibleFilter() {
-  for (var i = 0; i < ideas.length; i++) {
     var plausButton = document.querySelector('#plausible-btn');
+    var geniusButton = document.querySelector('#genius-btn');
+    var selectedQuality = ['swill', 'plausible', 'genius'];
     var dataIdKey = `[data-id = "${ideas[i].id}"]`;
     var targetCard = document.querySelector(dataIdKey);
-    if (ideas[i].quality === 'plausible' && targetCard.style.display !== 'block') {
+    if (ideas[i].quality.toLowerCase().includes(selectedQuality[target]) === false) {
       console.log('running if');
-      targetCard.style.display = "block";
-    } else if (ideas[i].quality !== 'plausible' && targetCard.style.display !== 'none') {
-      console.log('running else');
       targetCard.style.display = "none";
+    } else if (ideas[i].body.toLowerCase().includes(selectedQuality[target]) === true) {
+      console.log('running else');
+      targetCard.style.display = "block";
     }
   }
 }
+
+
+
+
+// function applySwillFilter() {
+//   for (var i = 0; i < ideas.length; i++) {
+//     var swillButton = document.querySelector('#swill-btn');
+//     var dataIdKey = `[data-id = "${ideas[i].id}"]`;
+//     var targetCard = document.querySelector(dataIdKey);
+//     if (ideas[i].quality === 'swill' && targetCard.style.display !== 'block') {
+//       console.log('running if');
+//       targetCard.style.display = "block";
+//     } else if (ideas[i].quality !== 'swill' && targetCard.style.display !== 'none') {
+//       console.log('running else');
+//       targetCard.style.display = "none";
+//       }
+//   }
+// }
+
+
+
+
+// function applyPlausibleFilter() {
+//   for (var i = 0; i < ideas.length; i++) {
+//     var plausButton = document.querySelector('#plausible-btn');
+//     var dataIdKey = `[data-id = "${ideas[i].id}"]`;
+//     var targetCard = document.querySelector(dataIdKey);
+//     if (ideas[i].quality === 'plausible' && targetCard.style.display !== 'block') {
+//       console.log('running if');
+//       targetCard.style.display = "block";
+//     } else if (ideas[i].quality !== 'plausible' && targetCard.style.display !== 'none') {
+//       console.log('running else');
+//       targetCard.style.display = "none";
+//     }
+//   }
+// }
 
 
 
