@@ -78,15 +78,28 @@ function saveNewIdea(obj) {
     }
   });
 
+  // function deleteCard(e) {
+  //   if(e.target.className === "delete-img") {
+  //     e.target.closest(".card").remove();
+  //   } 
+  //   if (e.target.className === "delete-img") {
+  //   var ideaLocation = findId(e)
+  //   ideas[ideaLocation].deleteFromStorage(ideaLocation);
+  //   saveLocalIdeas()}
+  // }
+
   function deleteCard(e) {
     if(e.target.className === "delete-img") {
       e.target.closest(".card").remove();
-    } 
-    if (e.target.className === "delete-img") {
-    var ideaLocation = findId(e)
+      var ideaLocation = findId(e)
     ideas[ideaLocation].deleteFromStorage(ideaLocation);
-    saveLocalIdeas()}
+    saveLocalIdeas()
+    }
   }
+
+
+
+
 
   function upVote(e) {
     if(e.target.className === "quality-up-img") {
@@ -137,17 +150,25 @@ function toggleButtonColor(event) {
 
 
 
-var searchInput = document.querySelector('.search-input');
-var certainIdeas = [];
 
-function runFilter() {
-  certainIdeas = [];
+
+var searchBoxInput = document.querySelector('.search-input');
+
+searchBoxInput.addEventListener('keyup', ideaFilter);
+
+function ideaFilter() {
   for (var i = 0; i < ideas.length; i++) {
-    if (ideas[i].body.includes(searchInput.value)) certainIdeas.push(ideas[i]);
+    var dataIdKey = `[data-id = "${ideas[i].id}"]`;
+    var targetCard = document.querySelector(dataIdKey);
+    if (ideas[i].body.toLowerCase().includes(searchBoxInput.value.toLowerCase()) === true || ideas[i].title.toLowerCase().includes(searchBoxInput.value.toLowerCase()) === true) {
+      console.log('running if');
+      targetCard.style.display = "block";
+    } else if (ideas[i].body.toLowerCase().includes(searchBoxInput.value.toLowerCase()) === false || ideas[i].title.toLowerCase().includes(searchBoxInput.value.toLowerCase()) === false) {
+      console.log('running else');
+      targetCard.style.display = "none";
+    }
   }
 }
-
-
 
 
 
