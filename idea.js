@@ -12,17 +12,17 @@ class Idea {
     this.starred = starred;
   }
   upVote() {
-    if(this.quality === quality[0]) {
-    this.quality = quality[1]}
-    else if (this.quality === quality[1]) {
-    this.quality = quality[2]
-    }
+    var currentQualityIndex = quality.indexOf(this.quality)
+    if (currentQualityIndex < quality.length -1) {
+    var newQualityIndex = currentQualityIndex + 1
+    this.quality = quality[newQualityIndex]
+  }
   }
   downVote() {
-    if(this.quality === quality[2]) {
-    this.quality = quality[1]}
-    else if (this.quality === quality[1]) {
-    this.quality = quality[0]
+    var currentQualityIndex = quality.indexOf(this.quality)
+    if (currentQualityIndex > 0) {
+    var newQualityIndex = currentQualityIndex - 1;
+    this.quality = quality[newQualityIndex]
     }
   }
   isStarred() {
