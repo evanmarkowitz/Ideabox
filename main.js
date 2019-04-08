@@ -45,11 +45,30 @@ function pageLoad() {
 }
 
 
+var starImg = 'images/star.svg';
+
+
+
+function toggleStar(e) {
+  if (e.target.className === 'fave-img') {
+    // e.target.parentNode.childNodes[1] = 
+    console.log(e.target.parentNode.childNodes[1].src);
+    var ideaLocation = findId(e);
+    if (ideas[ideaLocation].starred) {
+      e.target.parentNode.childNodes[1].src = 'images/star-active.svg';
+    } else if (ideas[ideaLocation].starred === false) {
+      e.target.parentNode.childNodes[1].src = 'images/star.svg';
+    }
+  }
+}
+
+
+
 function saveNewIdea(obj) {
   var ideaTable = document.querySelector('section');
   ideaTable.innerHTML += `<article class="card" data-id="${obj.id}">
       <header class="idea-header">
-        <img id="fave-img" class="fave-img" src="images/star.svg">
+        <img id="fave-img" class="fave-img" src=${starImg}>
         <img id="delete-img" class="delete-img" src="images/delete.svg">
       </header>
       <div class="idea-content">
@@ -130,7 +149,7 @@ function upVote(e) {
       console.log(ideas[ideaLocation])
       ideas[ideaLocation].isStarred();
       ideas[ideaLocation].saveToLocalStorage();
-      toggleStar(event);
+      toggleStar(e);
     }
   }
 
@@ -237,23 +256,5 @@ function toggleQualityFilter(target) {
 
 //  IMAGE CHANGERS 
 
-//cardSection.addEventListener('click', toggleStar);
 
-function toggleStar(event) {
-  var starElement = document.querySelector('.fave-img');
-  var ideaCard = document.querySelector('article');
-  var ideaLocation = findId(event);
-  if (event.target.className === 'fave-img'){
-    // console.log(event.target.parentNode.parentNode.getAttribute('starred'));
-    console.log(ideas[ideaLocation].starred);
-    var starSrc = document.querySelector('#fave-img').src;
-    var selectedCard = document.querySelector(`[data-id = "${ideas[ideaLocation].id}"]`);
-    if (ideas[ideaLocation].starred === true) {
-      console.log(selectedCard);
-      document.querySelector('#fave-img').src = 'images/star-active.svg';
-    } else if (ideas[ideaLocation].starred === false) {
-      console.log(starSrc);
-      document.querySelector('#fave-img').src = 'images/star-svg';
-    }
-  }
-}
+
