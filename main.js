@@ -104,13 +104,13 @@ function saveNewIdea(obj) {
 
 
 
-  function upVote(e) {
+function upVote(e) {
     if(e.target.className === "quality-up-img") {
       var ideaLocation = findId(e);
       ideas[ideaLocation].upVote();
       ideas[ideaLocation].saveToLocalStorage()
-      var quality = document.getElementById("idea-card-quality");
-      quality.innerText = " " + ideas[ideaLocation].quality;
+      var qualitySpan = e.target.parentNode.childNodes[3].childNodes[1]
+      qualitySpan.innerText = " " + ideas[ideaLocation].quality;
     }
 
   }
@@ -119,8 +119,8 @@ function saveNewIdea(obj) {
       var ideaLocation = findId(e);
       ideas[ideaLocation].downVote();
       ideas[ideaLocation].saveToLocalStorage()
-      var quality = document.getElementById("idea-card-quality");
-      quality.innerText = " " + ideas[ideaLocation].quality;
+      var qualitySpan = e.target.parentNode.childNodes[3].childNodes[1]
+      qualitySpan.innerText = " " + ideas[ideaLocation].quality;
     }
   }
 
