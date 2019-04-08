@@ -49,8 +49,8 @@ function saveNewIdea(obj) {
   var ideaTable = document.querySelector('section');
   ideaTable.innerHTML += `<article class="card" data-id="${obj.id}">
       <header class="idea-header">
-        <img class="fave-img" src="images/star.svg">
-        <img class="delete-img" src="images/delete.svg">
+        <img id="fave-img" class="fave-img" src="images/star.svg">
+        <img id="delete-img" class="delete-img" src="images/delete.svg">
       </header>
       <div class="idea-content">
         <h5 class="idea-card-title">${obj.title}</h5>
@@ -129,7 +129,8 @@ function saveNewIdea(obj) {
       var ideaLocation = findId(e);
       console.log(ideas[ideaLocation])
       ideas[ideaLocation].isStarred();
-      ideas[ideaLocation].saveToLocalStorage()
+      ideas[ideaLocation].saveToLocalStorage();
+      toggleStar(event);
     }
   }
 
@@ -230,6 +231,29 @@ function toggleQualityFilter(target) {
     } else if (ideas[i].body.toLowerCase().includes(selectedQuality[target]) === true) {
       console.log('running else');
       targetCard.style.display = "block";
+    }
+  }
+}
+
+//  IMAGE CHANGERS 
+
+//cardSection.addEventListener('click', toggleStar);
+
+function toggleStar(event) {
+  var starElement = document.querySelector('.fave-img');
+  var ideaCard = document.querySelector('article');
+  var ideaLocation = findId(event);
+  if (event.target.className === 'fave-img'){
+    // console.log(event.target.parentNode.parentNode.getAttribute('starred'));
+    console.log(ideas[ideaLocation].starred);
+    var starSrc = document.querySelector('#fave-img').src;
+    var selectedCard = document.querySelector(`[data-id = "${ideas[ideaLocation].id}"]`);
+    if (ideas[ideaLocation].starred === true) {
+      console.log(selectedCard);
+      document.querySelector('#fave-img').src = 'images/star-active.svg';
+    } else if (ideas[ideaLocation].starred === false) {
+      console.log(starSrc);
+      document.querySelector('#fave-img').src = 'images/star-svg';
     }
   }
 }
