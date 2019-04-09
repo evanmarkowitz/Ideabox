@@ -221,12 +221,13 @@ var newQualityButton = document.querySelector(".add-new-qual-btn")
 // newQualityButton.addEventListener('click', addQuality);
 
 function toggleNav() {
-  if (nav.style.display == 'none') {
+  if (nav.style.zIndex == '-5') {
+    console.log('zIndex detected')
     menuBtn.src = '../Ideabox/images/menu-close.svg';
-    return nav.style.display = 'flex';
-  } else if (nav.style.display = 'flex') {
+    return nav.style.zIndex = '1';
+  } else if (nav.style.zIndex = '1') {
     menuBtn.src = '../Ideabox/images/menu.svg';
-    return nav.style.display = 'none';
+    return nav.style.zIndex = '-5';
   }
 }
 
