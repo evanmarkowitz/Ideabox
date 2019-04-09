@@ -220,13 +220,13 @@ var newQualityButton = document.querySelector(".add-new-qual-btn")
 
 // newQualityButton.addEventListener('click', addQuality);
 
-function toggleNav(e) {
-  if (nav.style.display = 'none') {
-    nav.style.display = 'flex';
-    console.log('in flex')
+function toggleNav() {
+  if (nav.style.display == 'none') {
+    menuBtn.src = '../Ideabox/images/menu-close.svg';
+    return nav.style.display = 'flex';
   } else if (nav.style.display = 'flex') {
-    nav.style.display = 'none';
-    console.log('in none')
+    menuBtn.src = '../Ideabox/images/menu.svg';
+    return nav.style.display = 'none';
   }
 }
 
