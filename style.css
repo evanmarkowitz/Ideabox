@@ -32,9 +32,10 @@ nav {
   display: flex;
   flex-wrap: wrap;
   padding: 0;
+  background-color: #1f1f3d;
 }
 
-img {
+.mobile-menu-button {
   display: none;
 }
 
@@ -266,18 +267,18 @@ img {
     float: none;
   }
 
-  nav {
-    position: absolute;
-    display: none;
-  }
-
-  img {
-    display: block; 
+  .mobile-menu-button {
+    display: block;
     height: 35px;
     width: 30px;
     cursor: pointer;
     float: left;
     margin-left: 10px;
+  }
+
+  nav {
+    position: absolute;
+    display: none;
   }
 
   h1 {
