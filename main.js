@@ -53,7 +53,7 @@ function pageLoad(e) {
 
 function saveNewIdea(obj) {
   var ideaTable = document.querySelector('section');
-  ideaTable.innerHTML += `<article class="card" data-id="${obj.id}">
+  ideaTable.innerHTML = `<article class="card" data-id="${obj.id}">
       <header class="idea-header">
         <img class="fave-img" src="images/star.svg">
         <img class="delete-img" src="images/delete.svg">
@@ -67,7 +67,7 @@ function saveNewIdea(obj) {
         <h5 class="idea-card-quality">Quality:<span id="idea-card-quality"> ${obj.quality}</span></h5>
         <img class="quality-down-img" src="images/downvote.svg">
       </footer>
-    </article>`
+    </article>` + ideaTable.innerHTML;
   }
    function findId(e) {
     var targetedCard = e.target.closest(".card");
