@@ -19,6 +19,8 @@ cardSection.addEventListener("click", upVote);
 cardSection.addEventListener("click", downVote);
 cardSection.addEventListener("click", starred);
 newQualityButton.addEventListener('click', addQuality);
+cardSection.addEventListener('input', editOfBody)
+cardSection.addEventListener('input', editOfTitle)
 
 
 // Creates New Idea and Pushes it To Ideas Array
@@ -58,8 +60,8 @@ function saveNewIdea(obj) {
         <img class="delete-img" src="images/delete.svg">
       </header>
       <div class="idea-content">
-        <h5 class="idea-card-title">${obj.title}</h5>
-        <p class="idea-card-body">${obj.body}</p>
+        <h5 contenteditable="true" class="idea-card-title">${obj.title}</h5>
+        <p contenteditable="true" class="idea-card-body">${obj.body}</p>
       </div>
       <footer class="idea-footer">
         <img class="quality-up-img" src="images/upvote-active.svg">
@@ -124,6 +126,20 @@ function upVote(e) {
       ideas[ideaLocation].saveToLocalStorage()
     }
   }
+  function editOfBody(e) {
+  if(e.target.className === "idea-card-body"){
+    var ideaLocation = findId(e);
+    ideas[ideaLocation].body = e.target.innerText
+    ideas[ideaLocation].saveToLocalStorage();
+    }
+}
+function editOfTitle(e) {
+  if(e.target.className === "idea-card-title"){
+    var ideaLocation = findId(e);
+    ideas[ideaLocation].title = e.target.innerText
+    ideas[ideaLocation].saveToLocalStorage();
+    }
+}
 
 
   cardSection.addEventListener("click", deleteCard)
