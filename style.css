@@ -26,6 +26,10 @@ nav {
   padding-top: 16px;
 }
 
+img {
+  display: none;
+}
+
 h1 {
   margin-top: 0;
 }
@@ -248,6 +252,19 @@ img {
     height: 500px;
     display: block;
     float: none;
+  }
+
+  img {
+    display: block; 
+    height: 35px;
+    width: 30px;
+    cursor: pointer;
+    float: left;
+    margin-left: 10px;
+  }
+
+  h1 {
+    margin-right: 30px;
   }
 
   #new-quality-input {
