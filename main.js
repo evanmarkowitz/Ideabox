@@ -4,7 +4,7 @@ var upVoteButton = document.querySelector('.quality-up-img');
 var ideas = [];
 var searchBar = document.querySelector('.search-input');
 var filterBtn = document.querySelector('.search-button');
-
+var menuBtn = document.querySelector('.')
 
 window.addEventListener('load', pageLoad);
 // saveButton.addEventListener('click', saveIdea);
