@@ -45,8 +45,6 @@ function pageLoad() {
 }
 
 
-var starImg = 'images/star.svg';
-
 
 
 function toggleStar(e) {
@@ -62,7 +60,7 @@ function toggleStar(e) {
   }
 }
 
-
+var starImg = 'images/star.svg';
 
 function saveNewIdea(obj) {
   var ideaTable = document.querySelector('section');
@@ -254,7 +252,28 @@ function toggleQualityFilter(target) {
   }
 }
 
-//  IMAGE CHANGERS 
+var showStarredIdeasButton = document.querySelector('.light-btn');
+
+showStarredIdeasButton.addEventListener('click', toggleStarFilter)
+
+function toggleStarFilter() {
+  for (var i = 0; i < ideas.length; i++) {
+    var dataIdKey = `[data-id = "${ideas[i].id}"]`;
+    var targetCard = document.querySelector(dataIdKey);
+    var toggle = 0;
+    if (targetCard.style.display === 'block') {
+      if (ideas[i].starred) {
+        targetCard.style.display = 'block';
+      } else if (ideas[i].starred === false) {
+        targetCard.style.display = 'none';
+      }
+    } 
+    else if (targetCard.style.display === 'none') {
+      targetCard.style.display = 'block';
+    }
+  }
+}
+
 
 
 
