@@ -3,7 +3,8 @@ var cardSection = document.querySelector('section');
 var upVoteButton = document.querySelector('.quality-up-img');
 var newQualityButton = document.querySelector(".add-new-qual-btn");
 var ideas = [];
-
+var searchBar = document.querySelector('.search-input');
+var filterBtn = document.querySelector('.search-button');
 
 
 window.addEventListener('load', pageLoad);
@@ -159,7 +160,6 @@ function toggleButtonColor(event) {
 }
 
 
-
 function displayAllCards() {
   for (var i = 0; i < ideas.length; i++) {
     var dataIdKey = `[data-id = "${ideas[i].id}"]`;
@@ -265,6 +265,7 @@ var newQualityButton = document.querySelector(".add-new-qual-btn")
 //     }
 //   }
 // }
+
 
 
 
