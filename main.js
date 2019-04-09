@@ -4,7 +4,7 @@ var upVoteButton = document.querySelector('.quality-up-img');
 var ideas = [];
 var searchBar = document.querySelector('.search-input');
 var filterBtn = document.querySelector('.search-button');
-var menuBtn = document.querySelector('.')
+var menuBtn = document.querySelector('.mobile-menu-button')
 
 window.addEventListener('load', pageLoad);
 // saveButton.addEventListener('click', saveIdea);
@@ -70,18 +70,6 @@ function saveNewIdea(obj) {
     var ideaLocation = ideas.findIndex(i => i.id === targetedId)
     return ideaLocation
   }
-
-
-// The save button should be disabled unless there is text within the input
-  saveButton.addEventListener("click", function(e) {
-    console.log(titleInput.value);
-    console.log(bodyInput.value);
-    if (titleInput.value === "" || null && bodyInput.value === "" || null) {
-      saveButton.disabled = true;
-      saveButton.style.backgroundcolor = "#A9AAD2";
-      alert("Please enter an Idea");
-    }
-  });
 
   // function deleteCard(e) {
   //   if(e.target.className === "delete-img") {
