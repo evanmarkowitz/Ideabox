@@ -35,15 +35,17 @@ function saveLocalIdeas() {
 }
 
 // // On Page Load, Retrieves from Local Storage, Makes new Instances, and then Pushes into Idea Array
-function pageLoad() {
+function pageLoad(e) {
   qualityRetrieve();
   var retrievedIdeas = localStorage.getItem('ideas')
   var parsedIdeas = JSON.parse(retrievedIdeas);
   for (var i = 0; i < parsedIdeas.length; i++ ) {
-  var bestIdea = new Idea(parsedIdeas[i].id, parsedIdeas[i].title, parsedIdeas[i].body, parsedIdeas[i].quality, false);
+  var bestIdea = new Idea(parsedIdeas[i].id, parsedIdeas[i].title, parsedIdeas[i].body, parsedIdeas[i].quality, parsedIdeas[i].starred);
+  console.log(parsedIdeas[i].starred);
   saveNewIdea(bestIdea)
   ideas.push(bestIdea)
   bestIdea.saveToLocalStorage()
+  applyStar(e);
   }
   displayAllCards();
 }
@@ -164,6 +166,15 @@ function toggleStarFilter() {
   }
 }
 
+function applyStar(e) {
+  for (var i =0; i < ideas.length; i++) {
+    if (ideas[i].starred) {
+      document.querySelectorAll('article')[i].childNodes[1].childNodes[1].src = 'images/star-active.svg';
+    } else if (ideas[i].starred === false) {
+      document.querySelectorAll('article')[i].childNodes[1].childNodes[1].src = 'images/star.svg';
+    }
+  }
+}
 
 function toggleStar(e) {
   if (e.target.className === 'fave-img') {
