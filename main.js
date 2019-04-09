@@ -17,7 +17,7 @@ cardSection.addEventListener("click", deleteCard);
 newQualityButton.addEventListener('click', addQuality);
 cardSection.addEventListener('input', editOfBody)
 cardSection.addEventListener('input', editOfTitle)
-// cardSection.addEventListener("click", ideaAttributeChange);
+cardSection.addEventListener("click", ideaAttributeChange);
 
 
 // Creates New Idea and Pushes it To Ideas Array
@@ -107,6 +107,7 @@ function saveNewIdea(obj) {
       qualitySpan.innerText = " " + ideas[ideaLocation].quality;
   } else  if(e.target.className === "fave-img") {
       ideas[ideaLocation].isStarred();
+      toggleStar(e);
     }
   ideas[ideaLocation].saveToLocalStorage()
   }
@@ -139,6 +140,45 @@ function editOfTitle(e) {
     }
   }
 
+// Favorite status functions 
+
+var showStarredIdeasButton = document.querySelector('.light-btn');
+
+showStarredIdeasButton.addEventListener('click', toggleStarFilter)
+
+function toggleStarFilter() {
+  for (var i = 0; i < ideas.length; i++) {
+    var dataIdKey = `[data-id = "${ideas[i].id}"]`;
+    var targetCard = document.querySelector(dataIdKey);
+    var toggle = 0;
+    if (targetCard.style.display === 'block') {
+      if (ideas[i].starred) {
+        targetCard.style.display = 'block';
+      } else if (ideas[i].starred === false) {
+        targetCard.style.display = 'none';
+      }
+    } 
+    else if (targetCard.style.display === 'none') {
+      targetCard.style.display = 'block';
+    }
+  }
+}
+
+
+function toggleStar(e) {
+  if (e.target.className === 'fave-img') {
+    // e.target.parentNode.childNodes[1] = 
+    console.log(e.target.parentNode.childNodes[1].src);
+    var ideaLocation = findId(e);
+    if (ideas[ideaLocation].starred) {
+      e.target.parentNode.childNodes[1].src = 'images/star-active.svg';
+    } else if (ideas[ideaLocation].starred === false) {
+      e.target.parentNode.childNodes[1].src = 'images/star.svg';
+    }
+  }
+}
+
+// Quality Form functions
 
 var qualityForm = document.querySelector('.quality-btn-form');
 qualityForm.addEventListener('click', toggleButtonColor);
