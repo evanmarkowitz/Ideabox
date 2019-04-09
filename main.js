@@ -1,6 +1,7 @@
 var saveButton = document.querySelector('.save-button');
 var cardSection = document.querySelector('section');
 var upVoteButton = document.querySelector('.quality-up-img');
+var newQualityButton = document.querySelector(".add-new-qual-btn");
 var ideas = [];
 var searchBar = document.querySelector('.search-input');
 var filterBtn = document.querySelector('.search-button');
@@ -17,6 +18,8 @@ cardSection.addEventListener("click", deleteCard);
 cardSection.addEventListener("click", upVote);
 cardSection.addEventListener("click", downVote);
 cardSection.addEventListener("click", starred);
+newQualityButton.addEventListener('click', addQuality);
+
 
 // Creates New Idea and Pushes it To Ideas Array
 function makeNewIdea(e) {
@@ -34,6 +37,7 @@ function saveLocalIdeas() {
 
 // // On Page Load, Retrieves from Local Storage, Makes new Instances, and then Pushes into Idea Array
 function pageLoad() {
+  qualityRetrieve();
   var retrievedIdeas = localStorage.getItem('ideas')
   var parsedIdeas = JSON.parse(retrievedIdeas);
   for (var i = 0; i < parsedIdeas.length; i++ ) {
@@ -83,15 +87,6 @@ function saveNewIdea(obj) {
     }
   });
 
-  // function deleteCard(e) {
-  //   if(e.target.className === "delete-img") {
-  //     e.target.closest(".card").remove();
-  //   } 
-  //   if (e.target.className === "delete-img") {
-  //   var ideaLocation = findId(e)
-  //   ideas[ideaLocation].deleteFromStorage(ideaLocation);
-  //   saveLocalIdeas()}
-  // }
   function deleteCard(e) {
     if(e.target.className === "delete-img") {
       e.target.closest(".card").remove();
@@ -100,10 +95,6 @@ function saveNewIdea(obj) {
     saveLocalIdeas()
     }
   }
-
-
-
-
 
 function upVote(e) {
     if(e.target.className === "quality-up-img") {
@@ -169,24 +160,6 @@ function toggleButtonColor(event) {
 }
 
 
-qualityForm.addEventListener('click', filterSelector);
-
-function filterSelector(e) {
-  if (e.target.className === 'filter-btn') {
-    displayAllCards();
-  } else if (e.target.className === 'highlight-btn') {
-      if (e.target.id === 'swill-btn') {
-      toggleQualityFilter(0);
-      } else if (e.target.id === 'plausible-btn') {
-          console.log('plaus');
-          toggleQualityFilter(1);
-        } else if (e.target.id === 'genius-btn') {
-            console.log('genius');
-            toggleQualityFilter(2);
-          }
-    }
-}
-
 function displayAllCards() {
   for (var i = 0; i < ideas.length; i++) {
     var dataIdKey = `[data-id = "${ideas[i].id}"]`;
@@ -215,24 +188,47 @@ function ideaFilter() {
 }
 
 
-function toggleQualityFilter(target) {
+function toggleQualityFilterNew(e) {
   displayAllCards();
   for (var i = 0; i < ideas.length; i++) {
-    var swillButton = document.querySelector('#swill-btn');
-    var plausButton = document.querySelector('#plausible-btn');
-    var geniusButton = document.querySelector('#genius-btn');
-    var selectedQuality = ['swill', 'plausible', 'genius'];
-    var dataIdKey = `[data-id = "${ideas[i].id}"]`;
-    var targetCard = document.querySelector(dataIdKey);
-    if (ideas[i].quality.toLowerCase().includes(selectedQuality[target]) === false) {
-      console.log('running if');
-      targetCard.style.display = "none";
-    } else if (ideas[i].body.toLowerCase().includes(selectedQuality[target]) === true) {
-      console.log('running else');
-      targetCard.style.display = "block";
-    }
-  }
+  var dataIdKey = `[data-id = "${ideas[i].id}"]`;
+  var targetCard = document.querySelector(dataIdKey);
+    if (ideas[i].quality.toLowerCase().includes(e.target.innerText.toLowerCase())) {
+    console.log('running if');
+    targetCard.style.display = "block";
+    console.log(e.target)
+  } else if (e.target.className === "quality-btn-form"){
+    displayAllCards();
+  } else {
+    targetCard.style.display = "none";
+    console.log(e.target)
+  }}}
+
+ 
+
+qualityForm.addEventListener('click', toggleQualityFilterNew);
+
+function addQuality(e) {
+    var newQuality = document.querySelector(".new-quality-input")
+    var qualityForm = document.querySelector(".quality-btn-form")
+    qualityForm.insertAdjacentHTML('beforeend', `<button type="button" class="filter-btn">${newQuality.value}</button>`);
+    quality.push(newQuality.value)
+    var stringifiedQuality = JSON.stringify(quality)
+    localStorage.setItem('quality', stringifiedQuality) 
 }
+function qualityRetrieve() {
+  var retrievedQuality = localStorage.getItem('quality')
+  var parsedQuality = JSON.parse(retrievedQuality)
+  if(parsedQuality === null|| parsedQuality.length === 0 ){
+  } else {
+    quality = parsedQuality;}
+  for (var i = 0; i < quality.length; i++){
+  var qualityForm = document.querySelector('.quality-btn-form')
+  qualityForm.innerHTML +=(`<button type="button" id ="${quality[i]}-btn" class="filter-btn">${quality[i].charAt(0).toUpperCase()+quality[i].slice(1)}</button>`)}
+}
+var newQualityButton = document.querySelector(".add-new-qual-btn")
+
+// newQualityButton.addEventListener('click', addQuality);
 
 
 
@@ -269,3 +265,55 @@ function toggleQualityFilter(target) {
 //     }
 //   }
 // }
+
+
+
+
+// qualityForm.addEventListener('click', toggleQualityFilter);
+
+// function filterSelector(e) {
+//   if (e.target.className === 'filter-btn') {
+//     displayAllCards();
+//   } else if (e.target.className === 'highlight-btn') {
+//       if (e.target.id === 'swill-btn') {
+//       toggleQualityFilter(0);
+//       } else if (e.target.id === 'plausible-btn') {
+//           console.log('plaus');
+//           toggleQualityFilter(1);
+//         } else if (e.target.id === 'genius-btn') {
+//             console.log('genius');
+//             toggleQualityFilter(2);
+//   //         }
+//   for (var i = 0; i < quality.length; i++) {
+//       toggleQualityFilter[i]
+//   }
+// }}
+
+
+// function toggleQualityFilter(target) {
+    // displayAllCards();
+//   for (var i = 0; i < ideas.length; i++) {
+//     var swillButton = document.querySelector('#swill-btn');
+//     var plausButton = document.querySelector('#plausible-btn');
+//     var geniusButton = document.querySelector('#genius-btn');
+//     var selectedQuality = ['swill', 'plausible', 'genius'];
+    // var dataIdKey = `[data-id = "${ideas[i].id}"]`;
+    // var targetCard = document.querySelector(dataIdKey);
+//     if (ideas[i].quality.toLowerCase().includes(selectedQuality[target]quality.toLowerCase()) === false) {
+//       console.log('running if');
+//       targetCard.style.display = "none";
+//     } else if (ideas[i].body.toLowerCase().includes(selectedQuality[target]quality.toLowerCase()) === true) {
+//       console.log('running else');
+//       targetCard.style.display = "block";
+//     }
+//   }}
+
+  // function deleteCard(e) {
+  //   if(e.target.className === "delete-img") {
+  //     e.target.closest(".card").remove();
+  //   } 
+  //   if (e.target.className === "delete-img") {
+  //   var ideaLocation = findId(e)
+  //   ideas[ideaLocation].deleteFromStorage(ideaLocation);
+  //   saveLocalIdeas()}
+  // }
