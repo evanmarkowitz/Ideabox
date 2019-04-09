@@ -2,7 +2,8 @@ var saveButton = document.querySelector('.save-button');
 var cardSection = document.querySelector('section');
 var upVoteButton = document.querySelector('.quality-up-img');
 var ideas = [];
-
+var searchBar = document.querySelector('.search-input');
+var filterBtn = document.querySelector('.search-button');
 
 
 window.addEventListener('load', pageLoad);
@@ -168,7 +169,6 @@ function toggleButtonColor(event) {
 }
 
 
-
 qualityForm.addEventListener('click', filterSelector);
 
 function filterSelector(e) {
@@ -269,6 +269,3 @@ function toggleQualityFilter(target) {
 //     }
 //   }
 // }
-
-
-
