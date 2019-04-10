@@ -17,8 +17,7 @@ saveButton.addEventListener('click', makeNewIdea);
 cardSection.addEventListener("click", deleteCard);
 newQualityButton.addEventListener('click', addQuality);
 menuBtn.addEventListener('click', toggleNav);
-cardSection.addEventListener('input', editOfBody)
-cardSection.addEventListener('input', editOfTitle)
+cardSection.addEventListener('input', updateIdea)
 cardSection.addEventListener("click", ideaAttributeChange);
 
 
@@ -89,36 +88,24 @@ function saveNewIdea(obj) {
 
   function ideaAttributeChange(e) {
     var ideaLocation = findId(e);
+    ideas[ideaLocation].updateIdeaQuality(e.target.className)
     if(e.target.className === "quality-up-img") {
-      ideas[ideaLocation].upVote();
       var qualitySpan = e.target.parentNode.childNodes[3].childNodes[1]
       qualitySpan.innerText = " " + ideas[ideaLocation].quality;
   } else if (e.target.className === "quality-down-img") {
-      ideas[ideaLocation].downVote();
       var qualitySpan = e.target.parentNode.childNodes[3].childNodes[1]
       qualitySpan.innerText = " " + ideas[ideaLocation].quality;
   } else  if(e.target.className === "fave-img") {
-      ideas[ideaLocation].isStarred();
       toggleStar(e);
     }
   ideas[ideaLocation].saveToLocalStorage()
   }
 
-  function editOfBody(e) {
-  if(e.target.className === "idea-card-body"){
+  function updateIdea(e) {
     var ideaLocation = findId(e);
-    ideas[ideaLocation].body = e.target.innerText
+    ideas[ideaLocation].editIdeas(e.target.className, e.target.innerText);
     ideas[ideaLocation].saveToLocalStorage();
-    }
 }
-function editOfTitle(e) {
-  if(e.target.className === "idea-card-title"){
-    var ideaLocation = findId(e);
-    ideas[ideaLocation].title = e.target.innerText
-    ideas[ideaLocation].saveToLocalStorage();
-    }
-}
-
 
   cardSection.addEventListener("click", deleteCard)
 
