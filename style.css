@@ -1,9 +1,9 @@
 body {
+  background-color: #eaeaf4;
+  font-family: Open Sans, Light;
+  height: 1000px;
   margin: 0;
   padding: 0;
-  background-color: #eaeaf4;
-  height: 1000px;
-  font-family: Open Sans, Light;
 }
 
 button {
@@ -11,15 +11,15 @@ button {
 }
 
 header {
-  font-family: Open Sans, Bold;
+  background-color: #1f1f3d;
   color: #fff;
   float: left;
-  background-color: #1f1f3d;
-  width: 220px;
-  height:100%;
+  font-family: Open Sans, Bold;
+  height: 100%;
   margin: 0;
   padding: 0;
   text-align: center;
+  width: 220px;
 }
 
 nav {
@@ -31,56 +31,56 @@ h1 {
 }
 
 .starred-ideas {
-  height: 75px;
-  border-top: 1px solid #5356a4;
   border-bottom: 1px solid #5356a4;
+  border-top: 1px solid #5356a4;
+  height: 75px;
   padding: 15px 0;
 }
 
 .light-btn {
-  height: 35px;
-  width: 95%;
-  color: #fff;
   background-color: #5356a4;
-  font-weight: bolder;
-  font-size: 15px;
-  margin:15px 0;
   border: none;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bolder;
+  height: 35px;
+  margin: 15px 0;
+  width: 95%;
 }
 
 .quality-btn-form {
   color: #bfbfdd;
+  font-size: 15px;
   height: 175px;
   padding: 15px 0;
-  font-size: 15px;
 }
 
 .quality-btn-form legend {
   font-weight: bolder;
   margin-bottom: 10px;
-  margin-left: 8px; 
+  margin-left: 8px;
 }
 
 .filter-btn {
+  background-color: #1f1f3d;
+  border: none;
   color: #bfbfdd;
   font-size: 20px;
   font-weight: lighter;
   height: 35px;
-  width:100%;
-  background-color: #1f1f3d;
   text-align: left;
-  border: none;
+  width: 100%;
 }
 
 .highlight-btn {
+  background-color: #d14119;
+  border-left: 4px solid #f58e72;
   color: #bfbfdd;
   font-size: 20px;
   font-weight: lighter;
   height: 35px;
-  width:100%;
   text-align: left;
-  background-color: #d14119;
-  border-left: 4px solid #f58e72;
+  width: 100%;
 }
 
 .filter-btn:hover {
@@ -90,23 +90,23 @@ h1 {
 
 .new-quality-label {
   color: #bfbfdd;
-  font-weight: bolder;
+  float: left;
   font-size: 15px;
-  float:left;
+  font-weight: bolder;
   margin-left: 8px;
 }
 
 #new-quality-input {
-  width:90%;
-  height:25px;
+  height: 25px;
   margin-top: 5px;
+  width: 90%;
 }
 
 h3,
 .starred-ideas legend,
 .quality-btn-form legend {
-  text-align: left;
   margin-left: 8px;
+  text-align: left;
 }
 
 .quality-search-form {
@@ -114,32 +114,32 @@ h3,
 }
 
 
-/* Main Body */ 
+/* Main Body */
 
 main {
-  height :35%;
-  margin-left: 220px;
   background-color: #a9aad2;
+  height: 35%;
+  margin-left: 220px;
 }
 
 main label {
-  font-weight: bolder;
   color: #1f1f3d;
+  font-weight: bolder;
   margin-bottom: 2px;
 }
 
 .container {
-  padding-top: 15px;
   height: 100%;
-  width: 35%;
   margin: auto;
+  padding-top: 15px;
+  width: 35%;
 }
 
 main input {
-  width: 99%;
+  border: 1px solid #5356a4;
   height: 25px;
   margin-top: 5px;
-  border: 1px solid #5356a4;
+  width: 99%;
 }
 
 .body-input {
@@ -151,14 +151,14 @@ main input {
 }
 
 .save-button {
-  width: 100%;
-  height: 30px;
-  margin: 15px 0;
   background-color: #1f1f3d;
   border: none;
   color: #bfbfdd;
   font-size: 15px;
   font-weight: bolder;
+  height: 30px;
+  margin: 15px 0;
+  width: 100%;
 }
 
 #search-form {
@@ -166,46 +166,46 @@ main input {
 }
 
 .search-input {
-  flex: 1;
-  height: 30px;
   color: #1f1f3d;
+  flex: 1;
   font-size: 15px;
+  height: 30px;
 }
 
 .search-button {
-  height:34px;
-  width: 30px;
-  margin-top: 5px;
-  color: #fff;
   background-color: #1f1f3d;
   border: none;
+  color: #fff;
+  height: 34px;
+  margin-top: 5px;
+  width: 30px;
 }
 
 i {
-  margin:0;
   font-size: 15px;
+  margin: 0;
 }
 
 section {
-  overflow-y:auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   grid-gap: 3% 3%;
+  grid-template-columns: repeat(3, 1fr);
   height: 55%;
   margin: 0;
+  overflow-y: auto;
   padding: 2% 3%;
 }
 
-/* idea card <article> */ 
+/* idea card <article> */
 
 article {
   padding: 0;
 }
 
 img {
+  cursor: pointer;
   height: 25px;
   width: 25px;
-  cursor: pointer;
 }
 
 
@@ -214,13 +214,13 @@ img {
   display: flex;
   justify-content: space-between;
   max-height: 25px;
-  padding:0;
+  padding: 0;
   width: 100%;
 }
 
 .idea-card-title,
 .idea-card-body {
-  padding:15px 7px 0;
+  padding: 15px 7px 0;
 }
 
 .idea-content {
@@ -231,7 +231,7 @@ img {
 }
 
 .idea-card-quality {
-  margin:5px 0;
+  margin: 5px 0;
 }
 
 .idea-footer {
@@ -242,12 +242,12 @@ img {
 }
 
 @media only screen and (max-width: 600px) {
-  
+
   header {
-    width: 100%;
-    height: 500px;
     display: block;
     float: none;
+    height: 500px;
+    width: 100%;
   }
 
   #new-quality-input {
@@ -255,9 +255,9 @@ img {
   }
 
   main {
-    width: 100%;
     height: 350px;
     margin: 0;
+    width: 100%;
   }
 
   .container {

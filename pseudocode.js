@@ -17,7 +17,7 @@ When user clicks on Title or Body of idea, the text should become editable, pre-
 
 User should be able to commit changes by pressing Enter or clicking outside the text field. 
 
-When user clicks on the star, it should stay active. 
+// When user clicks on the star, it should stay active. 
 
 On reload, their edits should persist.
 
@@ -27,9 +27,9 @@ PHASE II:
 
 // Ideas should start as 'swill'. 
 //- each idea should have an upvote/downvote button. 
-- clicking upvote should increase quality one notch.
-- clicking downvote should do the opposite.
-- incrimenting genius or decrimenting swill will do nothing. 
+// - clicking upvote should increase quality one notch.
+// - clicking downvote should do the opposite.
+// - incrimenting genius or decrimenting swill will do nothing. 
 
 //Have a search bar. 
 
