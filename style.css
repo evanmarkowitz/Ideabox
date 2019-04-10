@@ -1,3 +1,5 @@
+/*Global*/
+
 body {
   margin: 0;
   padding: 0;
@@ -13,6 +15,8 @@ button {
 input {
   font-size: 1em;
 }
+
+/*Header*/
 
 header {
   font-family: Open Sans, Bold;
@@ -216,7 +220,7 @@ section {
   padding: 2% 3%;
 }
 
-/* idea card <article> */
+/* Idea Card <article> */
 
 article {
   padding: 10px 0;
@@ -260,6 +264,8 @@ img {
   justify-content: space-between;
   min-height: 30px;
 }
+
+/*Media Query*/
 
 @media only screen and (max-width: 600px) {
 
