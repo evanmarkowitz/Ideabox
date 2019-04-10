@@ -5,7 +5,8 @@ var newQualityButton = document.querySelector(".add-new-qual-btn");
 var ideas = [];
 var searchBar = document.querySelector('.search-input');
 var filterBtn = document.querySelector('.search-button');
-
+var menuBtn = document.querySelector('.mobile-menu-button')
+var nav = document.querySelector('nav');
 
 window.addEventListener('load', pageLoad);
 cardSection.addEventListener("click", deleteCard);
@@ -15,6 +16,7 @@ cardSection.addEventListener('click', findId);
 saveButton.addEventListener('click', makeNewIdea);
 cardSection.addEventListener("click", deleteCard);
 newQualityButton.addEventListener('click', addQuality);
+menuBtn.addEventListener('click', toggleNav);
 cardSection.addEventListener('input', editOfBody)
 cardSection.addEventListener('input', editOfTitle)
 cardSection.addEventListener("click", ideaAttributeChange);
@@ -75,18 +77,6 @@ function saveNewIdea(obj) {
     var ideaLocation = ideas.findIndex(i => i.id === targetedId)
     return ideaLocation
   }
-
-
-// The save button should be disabled unless there is text within the input
-  saveButton.addEventListener("click", function(e) {
-    console.log(titleInput.value);
-    console.log(bodyInput.value);
-    if (titleInput.value === "" || null && bodyInput.value === "" || null) {
-      saveButton.disabled = true;
-      saveButton.style.backgroundcolor = "#A9AAD2";
-      alert("Please enter an Idea");
-    }
-  });
 
   function deleteCard(e) {
     if(e.target.className === "delete-img") {
@@ -284,7 +274,16 @@ var newQualityButton = document.querySelector(".add-new-qual-btn")
 
 // newQualityButton.addEventListener('click', addQuality);
 
-
+function toggleNav() {
+  if (nav.style.zIndex == '-5') {
+    console.log('zIndex detected')
+    menuBtn.src = '../Ideabox/images/menu-close.svg';
+    return nav.style.zIndex = '1';
+  } else if (nav.style.zIndex = '1') {
+    menuBtn.src = '../Ideabox/images/menu.svg';
+    return nav.style.zIndex = '-5';
+  }
+}
 
 
 // function applySwillFilter() {
@@ -373,6 +372,7 @@ var newQualityButton = document.querySelector(".add-new-qual-btn")
   //   var ideaLocation = findId(e)
   //   ideas[ideaLocation].deleteFromStorage(ideaLocation);
   //   saveLocalIdeas()}
+  // }
   // }
 
 
