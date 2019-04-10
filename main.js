@@ -15,8 +15,7 @@ cardSection.addEventListener('click', findId);
 saveButton.addEventListener('click', makeNewIdea);
 cardSection.addEventListener("click", deleteCard);
 newQualityButton.addEventListener('click', addQuality);
-cardSection.addEventListener('input', editOfBody)
-cardSection.addEventListener('input', editOfTitle)
+cardSection.addEventListener('input', updateIdea)
 cardSection.addEventListener("click", ideaAttributeChange);
 
 
@@ -114,19 +113,10 @@ function saveNewIdea(obj) {
   ideas[ideaLocation].saveToLocalStorage()
   }
 
-  function editOfBody(e) {
-  if(e.target.className === "idea-card-body"){
+  function updateIdea(e) {
     var ideaLocation = findId(e);
-    ideas[ideaLocation].body = e.target.innerText
+    ideas[ideaLocation].editIdeas(e.target.className, e.target.innerText);
     ideas[ideaLocation].saveToLocalStorage();
-    }
-}
-function editOfTitle(e) {
-  if(e.target.className === "idea-card-title"){
-    var ideaLocation = findId(e);
-    ideas[ideaLocation].title = e.target.innerText
-    ideas[ideaLocation].saveToLocalStorage();
-    }
 }
 
 

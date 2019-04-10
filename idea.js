@@ -40,14 +40,15 @@ class Idea {
   var stringifiedIdeas = JSON.stringify(ideas);
   localStorage.setItem('ideas', stringifiedIdeas)
   }
-  editOfBody() {
-  if(e.target.className === "idea-card-body"){
-    var ideaLocation = findId(e);
-    ideas[ideaLocation].body = e.target.innerText
-    ideas[ideaLocation].saveToLocalStorage();
+  editIdeas(className, newText) {
+    console.log(className)
+    if (className === "idea-card-body"){
+    this.body = newText;}
+    else if (className === "idea-card-title"){
+    this.title = newText;
     }
-}
-}
+}}
+
  
 
 
