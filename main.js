@@ -20,6 +20,7 @@ newQualityButton.addEventListener('click', addQuality);
 menuBtn.addEventListener('click', toggleNav);
 cardSection.addEventListener('input', updateIdea)
 cardSection.addEventListener("click", ideaAttributeChange);
+saveButton.addEventListener('click', removeFirstIdea)
 
 function makeNewIdea(e) {
   var bestIdea = new Idea(Date.now(), titleInput.value, bodyInput.value, quality[0], false);
@@ -44,6 +45,7 @@ function pageLoad(e) {
     ideas.push(bestIdea)
     bestIdea.saveToLocalStorage()
     applyStar(e);
+    keepFirstIdeaRemoved()
   }
   displayAllCards();
 }
@@ -258,5 +260,19 @@ function toggleNav() {
   } else if (nav.style.zIndex = '1') {
     menuBtn.src = '../Ideabox/images/menu.svg';
     return nav.style.zIndex = '-5';
+  }
+}
+
+function removeFirstIdea(e) {
+  if (e.target.className === 'save-button') {
+    var ideaInstructions = document.querySelector('.idea-instructions')
+    ideaInstructions.remove();
+    console.log('working')
+  }
+}
+function keepFirstIdeaRemoved() {
+  if (ideas.length > 0) {
+  var ideaInstructions = document.querySelector('.idea-instructions')
+  ideaInstructions.remove();  
   }
 }
