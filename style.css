@@ -10,9 +10,9 @@ button {
   cursor: pointer;
 }
 
- input {
-    font-size: 1em;
-  }
+input {
+  font-size: 1em;
+}
 
 header {
   font-family: Open Sans, Bold;
@@ -61,7 +61,7 @@ h1 {
   background-color: #5356a4;
   font-weight: bolder;
   font-size: 15px;
-  margin:15px 0;
+  margin: 15px 0;
   border: none;
 }
 
@@ -70,15 +70,14 @@ h1 {
   height: 115px;
   width: 100%;
   padding: 15px 0;
-  margin-bottom: 25px
-  font-size: 15px;
+  margin-bottom: 25px font-size: 15px;
   overflow: scroll;
 }
 
 .quality-btn-form legend {
   font-weight: bolder;
   margin-bottom: 10px;
-  margin-left: 8px; 
+  margin-left: 8px;
 }
 
 .filter-btn {
@@ -86,7 +85,7 @@ h1 {
   font-size: 20px;
   font-weight: lighter;
   height: 35px;
-  width:100%;
+  width: 100%;
   background-color: #1f1f3d;
   text-align: left;
   border: none;
@@ -97,7 +96,7 @@ h1 {
   font-size: 20px;
   font-weight: lighter;
   height: 35px;
-  width:100%;
+  width: 100%;
   text-align: left;
   background-color: #d14119;
   border-left: 4px solid #f58e72;
@@ -112,13 +111,13 @@ h1 {
   color: #bfbfdd;
   font-weight: bolder;
   font-size: 15px;
-  float:left;
+  float: left;
   margin-left: 8px;
 }
 
 #new-quality-input {
-  width:90%;
-  height:25px;
+  width: 90%;
+  height: 25px;
   margin-top: 5px;
 }
 
@@ -135,10 +134,10 @@ h3,
 }
 
 
-/* Main Body */ 
+/* Main Body */
 
 main {
-  height :35%;
+  height: 35%;
   margin-left: 220px;
   background-color: #a9aad2;
 }
@@ -194,7 +193,7 @@ main input {
 }
 
 .search-button {
-  height:34px;
+  height: 34px;
   width: 30px;
   margin-top: 5px;
   color: #fff;
@@ -203,12 +202,12 @@ main input {
 }
 
 i {
-  margin:0;
+  margin: 0;
   font-size: 15px;
 }
 
 section {
-  overflow-y:auto;
+  overflow-y: auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 3% 3%;
@@ -217,7 +216,7 @@ section {
   padding: 2% 3%;
 }
 
-/* idea card <article> */ 
+/* idea card <article> */
 
 article {
   padding: 0;
@@ -235,13 +234,13 @@ img {
   display: flex;
   justify-content: space-between;
   max-height: 25px;
-  padding:0;
+  padding: 0;
   width: 100%;
 }
 
 .idea-card-title,
 .idea-card-body {
-  padding:15px 7px 0;
+  padding: 15px 7px 0;
 }
 
 .idea-content {
@@ -252,7 +251,7 @@ img {
 }
 
 .idea-card-quality {
-  margin:5px 0;
+  margin: 5px 0;
 }
 
 .idea-footer {
@@ -308,7 +307,7 @@ img {
   }
 
   .idea-header {
-    max-height: 30px; 
+    max-height: 30px;
   }
 
   .idea-card-title {
