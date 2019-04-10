@@ -10,6 +10,10 @@ button {
   cursor: pointer;
 }
 
+ input {
+    font-size: 1em;
+  }
+
 header {
   font-family: Open Sans, Bold;
   color: #fff;
@@ -257,7 +261,7 @@ img {
 }
 
 @media only screen and (max-width: 600px) {
-  
+
   header {
     width: 100%;
     height: 63px;
