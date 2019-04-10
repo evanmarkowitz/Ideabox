@@ -71,8 +71,10 @@ h1 {
 
 .quality-btn-form {
   color: #bfbfdd;
-  height: 115px;
+  height: 168px;
   width: 100%;
+  margin-bottom: 25px
+  font-size: 15px;
   padding: 15px 0;
   margin-bottom: 25px font-size: 15px;
   overflow: scroll;
@@ -217,13 +219,16 @@ section {
   grid-gap: 3% 3%;
   height: 55%;
   margin: 0;
-  padding: 2% 3%;
+  padding: 10px;
 }
 
 /* Idea Card <article> */
 
 article {
+  padding: 0;
+  margin-bottom: 10px;
   padding: 10px 0;
+
 }
 
 img {
@@ -266,8 +271,7 @@ img {
 }
 
 /*Media Query*/
-
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
 
   header {
     width: 100%;

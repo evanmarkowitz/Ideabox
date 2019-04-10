@@ -61,7 +61,7 @@ function saveNewIdea(obj) {
         <p contenteditable="true" class="idea-card-body">${obj.body}</p>
       </div>
       <footer class="idea-footer">
-        <img class="quality-up-img" src="images/upvote-active.svg">
+        <img class="quality-up-img" src="images/upvote.svg">
         <h5 class="idea-card-quality">Quality:<span id="idea-card-quality"> ${obj.quality}</span></h5>
         <img class="quality-down-img" src="images/downvote.svg">
       </footer>
