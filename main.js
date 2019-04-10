@@ -90,7 +90,7 @@ function saveNewIdea(obj) {
   function deleteCard(e) {
     if(e.target.className === "delete-img") {
       e.target.closest(".card").remove();
-      var ideaLocation = findId(e)
+    var ideaLocation = findId(e)
     ideas[ideaLocation].deleteFromStorage(ideaLocation);
     saveLocalIdeas()
     }
@@ -99,15 +99,18 @@ function saveNewIdea(obj) {
   function ideaAttributeChange(e) {
     var ideaLocation = findId(e);
     if(e.target.className === "quality-up-img") {
-      ideas[ideaLocation].upVote();
+      // ideas[ideaLocation].upVote();
+      ideas[ideaLocation].updateIdeaQuality(e.target.className)
       var qualitySpan = e.target.parentNode.childNodes[3].childNodes[1]
       qualitySpan.innerText = " " + ideas[ideaLocation].quality;
   } else if (e.target.className === "quality-down-img") {
-      ideas[ideaLocation].downVote();
+      // ideas[ideaLocation].downVote();
+      ideas[ideaLocation].updateIdeaQuality(e.target.className)
       var qualitySpan = e.target.parentNode.childNodes[3].childNodes[1]
       qualitySpan.innerText = " " + ideas[ideaLocation].quality;
   } else  if(e.target.className === "fave-img") {
-      ideas[ideaLocation].isStarred();
+      // ideas[ideaLocation].isStarred();
+      ideas[ideaLocation].updateIdeaQuality(e.target.className)
       toggleStar(e);
     }
   ideas[ideaLocation].saveToLocalStorage()
