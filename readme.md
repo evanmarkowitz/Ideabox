@@ -7,3 +7,4 @@ Technologies Used:
 3. CSS Grid
 
 Comp.
+![Comp](images/ideabox-redux-01.jpg)
