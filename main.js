@@ -40,7 +40,6 @@ function pageLoad(e) {
   var parsedIdeas = JSON.parse(retrievedIdeas);
   for (var i = 0; i < parsedIdeas.length; i++) {
     var bestIdea = new Idea(parsedIdeas[i].id, parsedIdeas[i].title, parsedIdeas[i].body, parsedIdeas[i].quality, parsedIdeas[i].starred);
-    console.log(parsedIdeas[i].starred);
     saveNewIdea(bestIdea)
     ideas.push(bestIdea)
     bestIdea.saveToLocalStorage()
@@ -152,8 +151,6 @@ function applyStar(e) {
 
 function toggleStar(e) {
   if (e.target.className === 'fave-img') {
-    // e.target.parentNode.childNodes[1] = 
-    console.log(e.target.parentNode.childNodes[1].src);
     var ideaLocation = findId(e);
     if (ideas[ideaLocation].starred) {
       e.target.parentNode.childNodes[1].src = 'images/star-active.svg';
@@ -200,10 +197,8 @@ function ideaFilter() {
     var dataIdKey = `[data-id = "${ideas[i].id}"]`;
     var targetCard = document.querySelector(dataIdKey);
     if (ideas[i].body.toLowerCase().includes(searchBoxInput.value.toLowerCase()) === true || ideas[i].title.toLowerCase().includes(searchBoxInput.value.toLowerCase()) === true) {
-      console.log('running if');
       targetCard.style.display = "block";
     } else if (ideas[i].body.toLowerCase().includes(searchBoxInput.value.toLowerCase()) === false || ideas[i].title.toLowerCase().includes(searchBoxInput.value.toLowerCase()) === false) {
-      console.log('running else');
       targetCard.style.display = "none";
     }
   }
@@ -218,7 +213,6 @@ function toggleQualityFilterNew(e) {
     if (e.target.className === 'filter-btn') {
       displayAllCards();
     } else if (ideas[i].quality.toLowerCase().includes(e.target.innerText.toLowerCase())) {
-      console.log('running if');
       targetCard.style.display = "block";
       currentDisplay = e.target.innerText;
     } else if (e.target.className === "quality-btn-form") {
@@ -254,7 +248,6 @@ function qualityRetrieve() {
 
 function toggleNav() {
   if (nav.style.zIndex == '-5') {
-    console.log('zIndex detected')
     menuBtn.src = '../Ideabox/images/menu-close.svg';
     return nav.style.zIndex = '1';
   } else if (nav.style.zIndex = '1') {
@@ -267,7 +260,6 @@ function removeFirstIdea(e) {
   if (e.target.className === 'save-button') {
     var ideaInstructions = document.querySelector('.idea-instructions')
     ideaInstructions.remove();
-    console.log('working')
   }
 }
 function keepFirstIdeaRemoved() {
